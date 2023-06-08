@@ -1,12 +1,10 @@
 import React from 'react';
-import ClassCard from './ClassCard';
 import useClasses from '../../../hooks/useClasses';
+import ClassCard from '../PopularClasses/ClassCard';
 
-const PopularClasses = () => {
+const Classes = () => {
     const [courses]= useClasses();
-
     return (
-
         <div>
             <h1 className='text-3xl  text-center'> Popular Classes</h1>
 
@@ -19,4 +17,4 @@ const PopularClasses = () => {
     );
 };
 
-export default PopularClasses;
+export default Classes;

@@ -2,6 +2,7 @@
     {
       "id": 1,
       "Image": "https://i.ibb.co/cX3xBpv/Ansel-Adams-and-camera.jpg",
+      "CourseBanner": "https://i.ibb.co/jTVKHpv/1.png",
       "Name": "Ansel Adams",
       "Email": "ansel.adams@example.com",
       "ClassesTaken": 5
@@ -9,6 +10,7 @@
     {
       "id": 2,
       "Image": "https://i.ibb.co/98kjFgt/annie.jpg",
+      "CourseBanner": "https://i.ibb.co/VDnyN6p/4.png",
       "Name": "Annie Leibovitz",
       "Email": "annie.leibovitz@example.com",
       "ClassesTaken": 8
@@ -16,6 +18,7 @@
     {
       "id": 3,
       "Image": "https://i.ibb.co/JrP8jJh/Steve-Mc-Curry-for-Leica.jpg",
+      "CourseBanner": "https://i.ibb.co/MfFNzMd/8.png",
       "Name": "Steve McCurry",
       "Email": "steve.mccurry@example.com",
       "ClassesTaken": 3
@@ -23,6 +26,7 @@
     {
       "id": 4,
       "Image": "https://i.ibb.co/02xhVQ6/Sebastiao-Salgado-20.jpg",
+      "CourseBanner": "https://i.ibb.co/SxbpzHx/3.png",
       "Name": "Sebastião Salgado",
       "Email": "sebastiao.salgado@example.com",
       "ClassesTaken": 10
@@ -30,6 +34,7 @@
     {
       "id": 5,
       "Image": "https://i.ibb.co/MB25XWw/dorothe.jpg",
+      "CourseBanner": "https://i.ibb.co/K6jq72s/9.png",
       "Name": "Dorothea Lange",
       "Email": "dorothea.lange@example.com",
       "ClassesTaken": 6
@@ -37,6 +42,7 @@
     {
       "id": 6,
       "Image": "https://i.ibb.co/bF4KbgV/helmut.jpg",
+      "CourseBanner": "https://i.ibb.co/nnXnp3S/7.png",
       "Name": "Helmut Newton",
       "Email": "helmut.newton@example.com",
       "ClassesTaken": 2
@@ -44,6 +50,7 @@
     {
       "id": 7,
       "Image": "https://i.ibb.co/hgQ4VwS/rechard.jpg",
+      "CourseBanner": "https://i.ibb.co/HqwBjxN/2.png",
       "Name": "Richard Avedon",
       "Email": "richard.avedon@example.com",
       "ClassesTaken": 4
@@ -51,6 +58,7 @@
     {
       "id": 8,
       "Image": "https://i.ibb.co/vVHPqWv/cindy.jpg",
+      "CourseBanner": "https://i.ibb.co/7QtQGJ6/6.png",
       "Name": "Cindy Sherman",
       "Email": "cindy.sherman@example.com",
       "ClassesTaken": 7
@@ -58,6 +66,7 @@
     {
       "id": 9,
       "Image": "https://i.ibb.co/MRZZGRX/irving.png",
+      "CourseBanner": "https://i.ibb.co/XZz5czJ/10.png",
       "Name": "Irving Penn",
       "Email": "irving.penn@example.com",
       "ClassesTaken": 9
@@ -65,6 +74,7 @@
     {
       "id": 10,
       "Image": "https://i.ibb.co/tzjv7vT/henri.png",
+      "CourseBanner": "https://i.ibb.co/gt758Wk/5.png",
       "Name": "Henri Cartier-Bresson",
       "Email": "henri.cartier@example.com",
       "ClassesTaken": 1
