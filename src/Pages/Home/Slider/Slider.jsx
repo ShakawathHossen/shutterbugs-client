@@ -39,7 +39,7 @@ const Slider = () => {
                     <div className="absolute md:top-72 top-10 left-0 right-0 flex justify-center">
                         <div className="text-center flex flex-col gap-6">
                         <h1 className="md:text-8xl uppercase font-bold text-slate-950 drop-shadow-2xl ">Focus, Click, Inspire!</h1>
-                        <marquee className="text-3xl font-medium" behavior="" direction="">30% Discount untill 21June</marquee>
+                        <marquee className="md:text-3xl font-medium" behavior="" direction="">30% Discount untill 21June</marquee>
                         <button className="  customButton mx-auto shadow-2x">Join Today</button>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ const Slider = () => {
                 <div className="absolute md:top-72 top-10 left-0 right-0 flex justify-center">
                         <div className="text-center flex flex-col gap-6">
                         <h1 className="md:text-8xl uppercase font-bold text-slate-950 drop-shadow-2xl ">Picture-Perfect Summer Adventures!</h1>
-                        <marquee className="text-3xl font-medium" behavior="" direction="">30% Discount untill 21June</marquee>
+                        <marquee className="md:text-3xl font-medium" behavior="" direction="">30% Discount untill 21June</marquee>
                         <button className="  customButton mx-auto shadow-2x">Join Today</button>
                         </div>
                     </div>
@@ -57,7 +57,7 @@ const Slider = () => {
                 <div className="absolute md:top-72 top-10 left-0 right-0 flex justify-center">
                         <div className="text-center flex flex-col gap-6">
                         <h1 className="md:text-8xl uppercase font-bold text-slate-950 drop-shadow-2xl ">Unleash Your Inner Photographer!</h1>
-                        <marquee className="text-3xl font-medium" behavior="" direction="">30% Discount untill 21June</marquee>
+                        <marquee className="md:text-3xl font-medium" behavior="" direction="">30% Discount untill 21June</marquee>
                         <button className="  customButton mx-auto shadow-2x">Join Today</button>
                         </div>
                     </div>

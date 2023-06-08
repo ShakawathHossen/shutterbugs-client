@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "Image": "https://i.ibb.co/cX3xBpv/Ansel-Adams-and-camera.jpg",
+      "Name": "Ansel Adams",
+      "Email": "ansel.adams@example.com",
+      "ClassesTaken": 5
+    },
+    {
+      "id": 2,
+      "Image": "https://i.ibb.co/98kjFgt/annie.jpg",
+      "Name": "Annie Leibovitz",
+      "Email": "annie.leibovitz@example.com",
+      "ClassesTaken": 8
+    },
+    {
+      "id": 3,
+      "Image": "https://i.ibb.co/JrP8jJh/Steve-Mc-Curry-for-Leica.jpg",
+      "Name": "Steve McCurry",
+      "Email": "steve.mccurry@example.com",
+      "ClassesTaken": 3
+    },
+    {
+      "id": 4,
+      "Image": "https://i.ibb.co/02xhVQ6/Sebastiao-Salgado-20.jpg",
+      "Name": "Sebastião Salgado",
+      "Email": "sebastiao.salgado@example.com",
+      "ClassesTaken": 10
+    },
+    {
+      "id": 5,
+      "Image": "https://i.ibb.co/MB25XWw/dorothe.jpg",
+      "Name": "Dorothea Lange",
+      "Email": "dorothea.lange@example.com",
+      "ClassesTaken": 6
+    },
+    {
+      "id": 6,
+      "Image": "https://i.ibb.co/bF4KbgV/helmut.jpg",
+      "Name": "Helmut Newton",
+      "Email": "helmut.newton@example.com",
+      "ClassesTaken": 2
+    },
+    {
+      "id": 7,
+      "Image": "https://i.ibb.co/hgQ4VwS/rechard.jpg",
+      "Name": "Richard Avedon",
+      "Email": "richard.avedon@example.com",
+      "ClassesTaken": 4
+    },
+    {
+      "id": 8,
+      "Image": "https://i.ibb.co/vVHPqWv/cindy.jpg",
+      "Name": "Cindy Sherman",
+      "Email": "cindy.sherman@example.com",
+      "ClassesTaken": 7
+    },
+    {
+      "id": 9,
+      "Image": "https://i.ibb.co/MRZZGRX/irving.png",
+      "Name": "Irving Penn",
+      "Email": "irving.penn@example.com",
+      "ClassesTaken": 9
+    },
+    {
+      "id": 10,
+      "Image": "https://i.ibb.co/tzjv7vT/henri.png",
+      "Name": "Henri Cartier-Bresson",
+      "Email": "henri.cartier@example.com",
+      "ClassesTaken": 1
+    }
+  ]
+  
