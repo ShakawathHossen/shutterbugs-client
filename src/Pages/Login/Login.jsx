@@ -1,11 +1,50 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css'
 import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { AuthContext } from '../../Providers/AuthProviders';
+import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+import app from '../../firebase/firebase.config';
 
 
 
 const Login = () => {
+    const {signIn}= useContext(AuthContext)
+    const Auth= getAuth(app);
+    const googleProvider= new GoogleAuthProvider();
+
+
+
+
+
+
+
+
+
+      // google sign in 
+
+      const handleGoogleSignIn=()=>{
+        signInWithPopup(Auth,googleProvider)
+        .then(result=>{
+            const loggedInUser=result.data;
+            console.log(loggedInUser);
+
+        })
+        .catch(err=>{console.log(err);});
+    }
+
+    // google sign in 
+
+
+
+
+
+
+
+
+
+
+
 
     const handleLogin = event => {
         event.preventDefault();
@@ -75,7 +114,7 @@ const Login = () => {
                         <div className='text-center  mt-6'>
                             <p className='text-lg  divider '>Or Connect With</p>
                             <div className='my-4'>
-                                <button className='px-4'>
+                                <button onClick={handleGoogleSignIn} className='px-4'>
                                     <img className='w-10' src="https://i.ibb.co/ftwyb00/Google-G-Logo-svg.png" alt="" />
                                 </button>
                                 <button className='px-4'>
