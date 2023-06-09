@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
 
 const Navbar = () => {
-  const { user,logOut } = useContext(AuthContext)
+  const { user, logOut } = useContext(AuthContext)
 
-  const handleLogOut=()=>{
+  const handleLogOut = () => {
     logOut()
-    .then(result=>{
-      console.log(result);
+      .then(result => {
+        console.log(result);
 
-    })
-    .catch(err=>{
-      console.log(err);
-    })
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 
 
@@ -47,21 +47,14 @@ const Navbar = () => {
         Dashboard
       </Link>
     </li>
-    <li>
-      <Link  className="text-white hover:text-gray-300">
-        <img
-          src=""
-          alt="Profile"
-          className="w-8 h-8 rounded-full"
-        />
-      </Link>
-    </li>
-
 
 
     {
       user ?
         <>
+          <div className="tooltip tooltip-bottom" data-tip={user.displayName}>
+            <img className='w-8 h-8 rounded-full' src={user.photoURL} alt="" />
+          </div>
           <li>
             <Link onClick={handleLogOut} className="text-white hover:text-gray-300">
               Logout

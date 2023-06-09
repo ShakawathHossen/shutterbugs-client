@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProviders';
@@ -10,6 +10,9 @@ const Login = () => {
   const { signIn } = useContext(AuthContext);
   const Auth = getAuth(app);
   const googleProvider = new GoogleAuthProvider();
+  const nevigate= useNavigate();
+    const location = useLocation()
+    const from=location.state?.from.pathname || '/'
 
   const {
     register,
@@ -26,6 +29,7 @@ const Login = () => {
       .then(result => {
         const user = result.user;
         console.log(user);
+        nevigate(from,{replace:true})
         // Redirect to desired page after successful login
       })
       .catch(error => {
@@ -38,6 +42,7 @@ const Login = () => {
     signInWithPopup(Auth, googleProvider)
       .then(result => {
         const loggedInUser = result.data;
+        nevigate(from,{replace:true})
         console.log(loggedInUser);
       })
       .catch(err => {

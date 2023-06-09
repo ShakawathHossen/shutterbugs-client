@@ -4,18 +4,28 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 
 const Registration = () => {
-    const {createUser}= useContext(AuthContext)
+    const {createUser,updateUserProfile}= useContext(AuthContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
+
         console.log(data)
         createUser(data.email, data.password)
         .then(result=>{
             const loggedUser=result.data;
             console.log(loggedUser);
+            updateUserProfile(data.name,data.photo)
+            .then (()=>{
+                console.log('profile updated');
+                reset();
+            })
+            .catch(err=>{
+                console.log(err)
         })
         // Reset the form
         reset();
-    };
+    })
+    }
+        ;
 
     return (
         <div className='md:py-6 background'>
@@ -74,7 +84,7 @@ const Registration = () => {
 
                             </label>
                             <input type="text" {...register("photo", { required: true })} name='photo' placeholder="Photo Url" className="input input-bordered" />
-                            {errors.name && <span className='text-red-600'>Photo Url is required</span>}
+                            {errors.photo && <span className='text-red-600'>Photo Url is required</span>}
                         </div>
                         <div className="mt-6 form-control">
                             <button className="border customButton" type="submit">Submit</button>
