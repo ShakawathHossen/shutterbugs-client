@@ -27,7 +27,7 @@ const Login = () => {
         signInWithPopup(Auth,googleProvider)
         .then(result=>{
             const loggedInUser=result.data;
-            console.log(loggedInUser);
+
 
         })
         .catch(err=>{console.log(err);});
