@@ -1,24 +1,61 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css'
+import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+
 
 
 const Login = () => {
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+        if (password.length < 6) {
+           alert('password must be 6 character long')
+        }
+        // email password sign in 
+        // signIn(email, password)
+        //     .then(result => {
+        //         const user = result.user;
+        //         console.log(user);
+        //         nevigate(from,{replace:true})
+        //         Swal.fire({
+        //             title: 'login Successfull',
+        //             text: 'Continue your browsing',
+        //             icon: 'success',
+        //             confirmButtonText: 'Thanks'
+        //           })
+        //     })
+        //     .catch((error) => {
+        //         Swal.fire(
+        //             'User and password not matched',
+        //           )
+        //     });
+        
+    }
+
+
+
+
+
     return (
         <div className='md:py-6 background'>
             <div className="grid md:grid-cols-3 py-16 justify-center align-content-center justify-items-center">
                 <div></div>
-                
-             
-                
+
+
+
                 <div className='shadow-xl shadow-slate-800 rounded-3xl'>
-                    <form className="card-body">
+                    <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control ">
                             <label className="label">
 
                             </label>
-            
-                            <input type="email" name='email'  placeholder="Your Email" className="input input-bordered" required />
+
+                            <input type="email" name='email' placeholder="Your Email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -31,6 +68,7 @@ const Login = () => {
                                 <small><input type="checkbox" name="" id="" /> show Password</small>
                             </label>
                         </div>
+                        
                         <div className="mt-6 form-control">
                             <button className="border customButton">Login</button>
                         </div>

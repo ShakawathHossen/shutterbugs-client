@@ -40,7 +40,7 @@ const Navbar = () => {
       <li>
         <Link to="/profile" className="text-white hover:text-gray-300">
           <img
-            src="/path/to/profile-picture.jpg"
+            src=""
             alt="Profile"
             className="w-8 h-8 rounded-full"
           />
@@ -53,7 +53,7 @@ const Navbar = () => {
             <nav className="flex items-center justify-between px-4 py-3 md:bg-gray-900 md:opacity-70 md:fixed md:z-10 w-full bg-gray-900 ">
       {/* Logo */}
       <div className="flex items-center">
-        <img src="/path/to/logo.png" alt="Logo" className="w-8 h-8" />
+        <img src="" alt="Logo" className="w-8 h-8" />
         <span className="text-white ml-2 text-lg font-semibold">Your Logo</span>
       </div>
 
