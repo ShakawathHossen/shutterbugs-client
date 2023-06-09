@@ -10,7 +10,7 @@ const Instructor = () => {
          <div className='grid md:grid-cols-3 justify-items-center grid-cols-1'>
             {
                 allInstructors.map(instructor =>
-                    <UserCard className='shadow-xl' instructor={instructor} key={instructor.id}
+                    <UserCard className='shadow-xl' instructor={instructor} key={instructor._id}
                         float
                         header={instructor.CourseBanner}
                         avatar={instructor.Image}

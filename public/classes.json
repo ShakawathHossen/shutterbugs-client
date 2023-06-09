@@ -1,85 +1,82 @@
 [
-    { 
-    "id": 1,
-      "Image": "https://i.ibb.co/jTVKHpv/1.png",
-      "Name": "Mastering Landscape Photography",
-      "InstructorName": "Ansel Adams",
-      "AvailableSeats": 20,
-      "Price": 29.99
-    },
-    {
-        "id": 2,
-      "Image": "https://i.ibb.co/VDnyN6p/4.png",
-      "Name": "Portrait Photography Essentials",
-      "InstructorName": "Annie Leibovitz",
-      "AvailableSeats": 15,
-      "Price": 19.99
-      
-    },
-    {
-        "id": 3,
-      "Image": "https://i.ibb.co/MfFNzMd/8.png",
-      "Name": "Introduction to Street Photography",
-      "InstructorName": "Steve McCurry",
-      "AvailableSeats": 10,
-      "Price": 49.99
-    
-    },
-    {
-        "id": 4,
-      "Image": "https://i.ibb.co/SxbpzHx/3.png",
-      "Name": "Advanced Lighting Techniques for Photography",
-      "InstructorName": "Sebastião Salgado",
-      "AvailableSeats": 25,
-      "Price": 39.99
-    },
-    {
-        "id": 5,
-      "Image": "https://i.ibb.co/K6jq72s/9.png",
-      "Name": "Travel Photography",
-      "InstructorName": "Dorothea Lange",
-      "AvailableSeats": 30,
-      "Price": 59.99
-    },
-    {
-        "id": 6,
-      "Image": "https://i.ibb.co/nnXnp3S/7.png",
-      "Name": "Product Photography",
-      "InstructorName": "Helmut Newton",
-      "AvailableSeats": 12,
-      "Price": 24.99
-    },
-    {
-        "id": 7,
-      "Image": "https://i.ibb.co/HqwBjxN/2.png",
-      "Name": "Black and White Photography",
-      "InstructorName": "Richard Avedon",
-      "AvailableSeats": 18,
-      "Price": 34.99
-    },
-    {
-        "id": 8,
-      "Image": "https://i.ibb.co/7QtQGJ6/6.png",
-      "Name": "Fashion Photography",
-      "InstructorName": "Cindy Sherman",
-      "AvailableSeats": 22,
-      "Price": 44.99
-    },
-    {
-        "id": 9,
-      "Image": "https://i.ibb.co/XZz5czJ/10.png",
-      "Name": "Wildlife Photography ",
-      "InstructorName": "Irving Penn",
-      "AvailableSeats": 14,
-      "Price": 54.99
-    },
-    {
-        "id": 10,
-      "Image": "https://i.ibb.co/gt758Wk/5.png",
-      "Name": "Night Photography",
-      "InstructorName": "Henri Cartier-Bresson",
-      "AvailableSeats": 16,
-      "Price": 64.99
-    }
-  ]
-  
+  {
+    "_id": "1",
+    "Image": "https://i.ibb.co/jTVKHpv/1.png",
+    "Name": "Mastering Landscape Photography",
+    "InstructorName": "Ansel Adams",
+    "AvailableSeats": 20,
+    "Price": 29.99
+  },
+  {
+    "_id": "2",
+    "Image": "https://i.ibb.co/VDnyN6p/4.png",
+    "Name": "Portrait Photography Essentials",
+    "InstructorName": "Annie Leibovitz",
+    "AvailableSeats": 15,
+    "Price": 19.99
+  },
+  {
+    "_id": "3",
+    "Image": "https://i.ibb.co/MfFNzMd/8.png",
+    "Name": "Introduction to Street Photography",
+    "InstructorName": "Steve McCurry",
+    "AvailableSeats": 10,
+    "Price": 49.99
+  },
+  {
+    "_id": "4",
+    "Image": "https://i.ibb.co/SxbpzHx/3.png",
+    "Name": "Advanced Lighting Techniques for Photography",
+    "InstructorName": "Sebastião Salgado",
+    "AvailableSeats": 25,
+    "Price": 39.99
+  },
+  {
+    "_id": "5",
+    "Image": "https://i.ibb.co/K6jq72s/9.png",
+    "Name": "Travel Photography",
+    "InstructorName": "Dorothea Lange",
+    "AvailableSeats": 30,
+    "Price": 59.99
+  },
+  {
+    "_id": "6",
+    "Image": "https://i.ibb.co/nnXnp3S/7.png",
+    "Name": "Product Photography",
+    "InstructorName": "Helmut Newton",
+    "AvailableSeats": 12,
+    "Price": 24.99
+  },
+  {
+    "_id": "7",
+    "Image": "https://i.ibb.co/HqwBjxN/2.png",
+    "Name": "Black and White Photography",
+    "InstructorName": "Richard Avedon",
+    "AvailableSeats": 18,
+    "Price": 34.99
+  },
+  {
+    "_id": "8",
+    "Image": "https://i.ibb.co/7QtQGJ6/6.png",
+    "Name": "Fashion Photography",
+    "InstructorName": "Cindy Sherman",
+    "AvailableSeats": 22,
+    "Price": 44.99
+  },
+  {
+    "_id": "9",
+    "Image": "https://i.ibb.co/XZz5czJ/10.png",
+    "Name": "Wildlife Photography ",
+    "InstructorName": "Irving Penn",
+    "AvailableSeats": 14,
+    "Price": 54.99
+  },
+  {
+    "_id": "10",
+    "Image": "https://i.ibb.co/gt758Wk/5.png",
+    "Name": "Night Photography",
+    "InstructorName": "Henri Cartier-Bresson",
+    "AvailableSeats": 16,
+    "Price": 64.99
+  }
+]

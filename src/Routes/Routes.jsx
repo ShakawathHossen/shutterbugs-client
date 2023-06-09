@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         }, 
         {
             path: "instructors",
-            element:<PrivateRoutes><Instructor></Instructor></PrivateRoutes>    
+            element:<Instructor></Instructor>    
         }, 
         {
             path: "classes",

@@ -26,7 +26,7 @@ const PopularInstructors = () => {
             <div className='grid md:grid-cols-3 justify-items-center grid-cols-1'>
         
                     {
-                        instructors.map(instructor => <UserCard className='shadow-xl' instructor={instructor} key={instructor.id}
+                        instructors.map(instructor => <UserCard className='shadow-xl' instructor={instructor} key={instructor._id}
                         float
                         header={instructor.CourseBanner}
                         avatar={instructor.Image}
