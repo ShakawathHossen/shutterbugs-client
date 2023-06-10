@@ -1,6 +1,8 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
+import { FaShoppingCart } from "react-icons/fa";
+
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
@@ -47,6 +49,14 @@ const Navbar = () => {
         Dashboard
       </Link>
     </li>
+    <li  className='relative'>
+      <Link to="" className="text-white hover:text-gray-300">
+      <FaShoppingCart size={24} className="text-green-600" />
+      <span className="bg-red-500 text-white text-xs font-bold rounded-full absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 px-1 py-0">
+          +1
+        </span>
+      </Link>
+    </li>
 
 
     {
@@ -79,11 +89,11 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="flex items-center justify-between px-4 py-3 md:bg-gray-900 md:opacity-70 md:fixed md:z-10 w-full bg-gray-900 ">
+      <nav className="flex items-center justify-between px-4  md:bg-gray-900 md:opacity-70 md:fixed md:z-10 w-full bg-gray-900 ">
         {/* Logo */}
         <div className="flex items-center">
-          <img src="" alt="Logo" className="w-8 h-8" />
-          <span className="text-white ml-2 text-lg font-semibold">Your Logo</span>
+          <img src="https://i.ibb.co/Vg6XWY9/2-removebg-preview.png" alt="Logo" className="h-20" />
+
         </div>
 
         {/* Mobile Menu Toggle */}
