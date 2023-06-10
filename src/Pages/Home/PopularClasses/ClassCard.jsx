@@ -2,34 +2,37 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import { Toaster, toast } from 'react-hot-toast';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useCart from '../../../hooks/useCart';
 
 const ClassCard = ({ course }) => {
-  const { Image, Name, InstructorName, AvailableSeats, Price,_id } = course;
-  const location= useLocation()
+  const { Image, Name, InstructorName, AvailableSeats, Price, _id } = course;
+  const location = useLocation()
   const { user } = useContext(AuthContext)
-  const navigate= useNavigate()
+  const { refetch, cart } = useCart();
+  const navigate = useNavigate()
 
   const handleAddtocart = (course) => {
     console.log(course)
     if (user && user.email) {
-      const cartItem= {courseId:_id,uid:user.uid,Image, Name, InstructorName, AvailableSeats, Price,email:user.email}
-      fetch('http://localhost:5000/carts',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify(cartItem)
+      const cartItem = { courseId: _id, uid: user.uid, Image, Name, InstructorName, AvailableSeats, Price, email: user.email }
+      fetch('http://localhost:5000/carts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(cartItem)
 
 
       })
         .then(res => res.json())
         .then(data => {
           if (data.insertedId) {
+            refetch();
             toast.success('Course added to cart')
           }
         })
     }
     else {
       toast.error('Please login first')
-      navigate('/login', { state: {from:location}})
+      navigate('/login', { state: { from: location } })
     }
   }
   return (

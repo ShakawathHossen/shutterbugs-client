@@ -2,10 +2,12 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProviders';
 import { FaShoppingCart } from "react-icons/fa";
+import useCart from '../../../hooks/useCart';
 
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext)
+  const { refetch, cart } = useCart();
 
   const handleLogOut = () => {
     logOut()
@@ -53,7 +55,7 @@ const Navbar = () => {
       <Link to="" className="text-white hover:text-gray-300">
       <FaShoppingCart size={24} className="text-green-600" />
       <span className="bg-red-500 text-white text-xs font-bold rounded-full absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 px-1 py-0">
-          +1
+          +{cart?.length || 0}
         </span>
       </Link>
     </li>
@@ -89,7 +91,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="flex items-center justify-between px-4  md:bg-gray-900 md:opacity-70 md:fixed md:z-10 w-full bg-gray-900 ">
+      <nav className="flex items-center justify-between px-4  md:z-10 w-full bg-green-900 ">
         {/* Logo */}
         <div className="flex items-center">
           <img src="https://i.ibb.co/Vg6XWY9/2-removebg-preview.png" alt="Logo" className="h-20" />
