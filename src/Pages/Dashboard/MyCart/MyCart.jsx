@@ -1,13 +1,29 @@
 import React from 'react';
 import useCart from '../../../hooks/useCart';
-import { key } from 'localforage';
+import { FaTrash } from 'react-icons/fa';
+import { Toaster, toast } from 'react-hot-toast';
 
 const MyCart = () => {
-    const { cart } = useCart();
+    const { refetch,cart } = useCart();
     console.log(cart);
     const total = cart.reduce((sum, item) => sum + item.Price, 0).toFixed(2);
+    const handleDelete = item => {
+        fetch(`http://localhost:5000/carts/${item._id}`, {
+            method: 'DELETE'
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount>0) {
+                    refetch()
+                    toast('Course Deleted from Cart', {
+                        icon: '❌',
+                      });
+                }
+            })
+    }
     return (
         <div className=''>
+           <div><Toaster /></div>
             <div className="overflow-x-auto shadow-2xl rounded-lg" >
                 <div className='flex justify-between items-center bg-red-200 py-6 px-4'>
                     <div>
@@ -26,7 +42,7 @@ const MyCart = () => {
                     <thead>
 
                         <tr>
-                            <th>ID</th>
+                            <th>Serial</th>
                             <th>Course Banner</th>
                             <th>Course Name</th>
                             <th>Instructor</th>
@@ -36,10 +52,10 @@ const MyCart = () => {
                     </thead>
                     <tbody>
                         {
-                            cart.map(item =>
+                            cart.map((item,index) =>
                                 <tr key={item._id}>
                                     <th>
-                                        {item._id}
+                                        {index+1}
                                     </th>
                                     <td>
                                         <div className="flex items-center space-x-3">
@@ -60,7 +76,7 @@ const MyCart = () => {
                                         <br />
                                     </td>
                                     <th>
-                                        <button className="btn bg-red-600 text-white btn-xs">Delete</button>
+                                        <button onClick={() => handleDelete(item)} className= "btn bg-red-600 text-white btn-md"><FaTrash></FaTrash></button>
                                     </th>
                                 </tr>
                             )
