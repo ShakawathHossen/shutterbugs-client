@@ -3,11 +3,14 @@ import { AuthContext } from '../Providers/AuthProviders';
 import { Link, Outlet } from 'react-router-dom';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
 import { FaHome, FaPaypal, FaShoppingCart, FaUser } from 'react-icons/fa';
+import useAdmin from '../hooks/useAdmin';
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext)
-    const isAdmin = true;
+    console.log(user);
+    // const isAdmin = true;
     // const isInstructor = true;
+    const [isAdmin]= useAdmin();
 
 
     return (
@@ -27,72 +30,34 @@ const Dashboard = () => {
                         {/* Profile section */}
                         <div className="p-4">
                             <div className="text-center">
-                                <img className="w-20 h-20 rounded-full mx-auto mb-2" src="https://i.ibb.co/vVHPqWv/cindy.jpg" alt="Profile" />
-                                <h4 className="text-lg font-bold">user.displayName</h4>
-                                <p className="text-gray-600">Frontend Developer</p>
+                                <img className="w-20 h-20 rounded-full mx-auto mb-2" src={user.photoURL} alt="Profile" />
+                                {user && (
+                                    <>
+                                        <h4 className="text-lg font-bold pb-2">{user.displayName} <span className='bg-green-600 text-white font-semibold text-xs px-2 py-1 rounded-full'>{isAdmin ? 'Admin' : 'User'}</span></h4>
+                                        <p className="text-gray-600">{user.email}</p>
+                                       
+                                    </>
+                                )}
                             </div>
                         </div>
                         <hr className='border-2 border-green-600' />
 
-                        {/* {isAdmin && (
-                            <>
-                                <li>
-                                    <Link to="/dashboard"><FaHome /> Admin Home</Link></li>
-                                <li>
-                                    <Link><FaShoppingCart /> My Cart</Link>
-                                </li>
-                                <li>
-                                    <Link ><FaPaypal /> Payment
-                                    </Link>
-                                </li>
-                            </>
-                        )}
-
-                        {isInstructor && (
-                            <>
-                                <li>
-                                    <Link to="/dashboard"><FaHome /> Instructor Home
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link to="/myclasses"><FaShoppingCart /> My Classes
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link ><FaPaypal /> Payment
-                                    </Link>
-                                </li>
-                            </>
-                        )}
-
-                        {!isAdmin && !isInstructor && (
-                            <>
-                                <li>
-                                    <Link to="/dashboard"><FaHome /> Home</Link>
-                                </li>
-                                <li>
-                                    <Link to="mycart"><FaShoppingCart /> My Selected Classes
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link ><FaPaypal /> Payment</Link>
-                                </li>
-                            </>
-                        )} */}
-
                         {
-                            isAdmin ? <>
+                            isAdmin  && (<>
                                 <li> <Link><FaHome></FaHome>Admin Home</Link> </li>
                                 <li> <Link to='allusers'><FaUser></FaUser>Manage Users</Link> </li>
                                 <li> <Link><FaPaypal></FaPaypal> Payment</Link> </li>
 
                             </>
-                                : <>
+                            ) 
+                        }
+                              {!isAdmin  && ( <>
                                     <li> <Link><FaHome></FaHome> Home</Link> </li>
                                     <li> <Link to='mycart'><FaShoppingCart></FaShoppingCart> My Selected Classes</Link> </li>
                                     <li> <Link><FaPaypal></FaPaypal> Payment</Link> </li>
 
                                 </>
+                           ) 
                         }
 
                     </ul>
