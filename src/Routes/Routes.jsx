@@ -8,6 +8,7 @@ import Instructor from "../Pages/Home/Instructor/Instructor";
 import Classes from "../Pages/Home/Classes/Classes";
 import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 
@@ -41,7 +42,7 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard",
-    element: <Dashboard></Dashboard>,
+    element:  <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
     children: [
       {
         path: "mycart",

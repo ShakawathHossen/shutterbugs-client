@@ -1,34 +1,53 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Registration = () => {
-    const {createUser,updateUserProfile}= useContext(AuthContext)
+    const { createUser, updateUserProfile } = useContext(AuthContext)
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const navigate = useNavigate()
     const onSubmit = data => {
 
         console.log(data)
         createUser(data.email, data.password)
-        .then(result=>{
-            const loggedUser=result.data;
-            console.log(loggedUser);
-            updateUserProfile(data.name,data.photo)
-            .then (()=>{
-                console.log('profile updated');
+            .then(result => {
+                const loggedUser = result.data;
+                console.log(loggedUser);
+                updateUserProfile(data.name, data.photo)
+                    .then(() => {
+                        const saveUser = { ...loggedUser, name: data.name, email: data.email, photo: data.photo}
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify(saveUser)
+
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                console.log(data)
+                                if (data.insertedId) {
+                                    reset();
+                                    toast.success('Registration Successfull')
+                                    
+                                }
+                                navigate('/')
+                            })
+
+                    })
+                    .catch(err => {
+                        console.log(err)
+                    })
+                // Reset the form
                 reset();
             })
-            .catch(err=>{
-                console.log(err)
-        })
-        // Reset the form
-        reset();
-    })
     }
         ;
 
     return (
         <div className='md:py-6 background'>
+            <div><Toaster/></div>
             <div className="grid md:grid-cols-3 py-16 justify-center align-content-center justify-items-center">
                 <div></div>
 
@@ -61,7 +80,7 @@ const Registration = () => {
                                         message: "Password must be at least 6 characters long",
                                     },
                                     pattern: {
-                                        value: /^(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/,
+                                        value: /^(?=.*[A-Z])(?=.*[@$!%*?&])[A-Za-z\d@$#!%*?&]+$/,
                                         message: 'Uppercase or Special Character Missing',
                                     },
                                 })}

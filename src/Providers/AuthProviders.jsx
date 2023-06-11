@@ -26,6 +26,8 @@ const AuthProviders = ({ children }) => {
 
     // create new user
 
+
+
     // sign in user 
     const signIn = (email, password) => {
         setLoading(true);

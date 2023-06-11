@@ -31,8 +31,8 @@ const ClassCard = ({ course }) => {
         })
     }
     else {
-      toast.error('Please login first')
       navigate('/login', { state: { from: location } })
+      toast.error('Please login first')
     }
   }
   return (

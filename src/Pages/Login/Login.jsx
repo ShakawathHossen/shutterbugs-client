@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
+import { Toaster, toast } from 'react-hot-toast';
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -28,7 +29,8 @@ const Login = () => {
     signInWithEmailAndPassword(Auth, email, password)
       .then(result => {
         const user = result.user;
-        console.log(user);
+        toast.success('Login Successfull');
+        // console.log(user);
         nevigate(from,{replace:true})
         // Redirect to desired page after successful login
       })
@@ -37,18 +39,38 @@ const Login = () => {
       });
   };
 
-  // Function to handle Google sign in
-  const handleGoogleSignIn = () => {
-    signInWithPopup(Auth, googleProvider)
-      .then(result => {
-        const loggedInUser = result.data;
-        nevigate(from,{replace:true})
-        console.log(loggedInUser);
+
+// Function to handle Google sign in
+const handleGoogleSignIn = () => {
+  signInWithPopup(Auth, googleProvider)
+    .then(result => {
+      const { user } = result; // Access the user object from the result
+      console.log(user);
+      const saveUser = {
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL
+      };
+
+      fetch('http://localhost:5000/users', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(saveUser)
       })
-      .catch(err => {
-        console.log(err);
-      });
-  };
+        .then(res => res.json())
+        .then(() => {
+          toast.success('Login Successfull');
+          nevigate(from,{replace:true})
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    })
+    .catch(err => {
+      console.log(err);
+    });
+};
+
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -56,6 +78,7 @@ const Login = () => {
 
   return (
     <div className="md:py-6 background">
+      <Toaster />
       <div className="grid md:grid-cols-3 py-16 justify-center align-content-center justify-items-center">
         <div></div>
         <div className="shadow-xl shadow-slate-800 rounded-3xl">
