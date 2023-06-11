@@ -46,13 +46,13 @@ const Navbar = () => {
         Classes
       </Link>
     </li>
-    <li>
+    {/* <li>
       <Link to="/dashboard" className="text-white hover:text-gray-300">
         Dashboard
       </Link>
-    </li>
+    </li> */}
     <li  className='relative'>
-      <Link to="" className="text-white hover:text-gray-300">
+      <Link to="/dashboard/mycart" className="text-white hover:text-gray-300">
       <FaShoppingCart size={24} className="text-green-600" />
       <span className="bg-red-500 text-white text-xs font-bold rounded-full absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 px-1 py-0">
           +{cart?.length || 0}
