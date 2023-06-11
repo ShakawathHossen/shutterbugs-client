@@ -76,13 +76,13 @@ const MyCart = () => {
                                         <br />
                                     </td>
                                     <th>
-                                        <button onClick={() => handleDelete(item)} className= "btn bg-red-600 text-white btn-md"><FaTrash></FaTrash></button>
+                                        <button onClick={() => handleDelete(item)} className=" bg-red-600 text-white px-2 py-1 rounded-full">Delete</button>
                                     </th>
                                 </tr>
                             )
                         }
                         {/* row 1 */}
-
+  
                     </tbody>
 
                 </table>

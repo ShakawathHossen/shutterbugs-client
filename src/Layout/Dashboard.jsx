@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProviders';
 import { Link, Outlet } from 'react-router-dom';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
-import { FaHome, FaPaypal, FaShoppingCart } from 'react-icons/fa';
+import { FaHome, FaPaypal, FaShoppingCart, FaUser } from 'react-icons/fa';
 
 const Dashboard = () => {
-    const {user}=useContext(AuthContext)
+    const { user } = useContext(AuthContext)
+    const isAdmin = true;
+    // const isInstructor = true;
 
 
     return (
@@ -14,9 +16,9 @@ const Dashboard = () => {
             <div className="drawer lg:drawer-open ">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col p-10">
-                    <Outlet></Outlet>
-                    <label htmlFor="my-drawer-2" className=" drawer-buttona lg:hidden absolute right-0 bottom-0">x</label>
+                    <label htmlFor="my-drawer-2" className=" drawer-buttona lg:hidden absolute right-0 bottom-0">open side bar</label>
 
+                    <Outlet></Outlet>
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
@@ -31,10 +33,68 @@ const Dashboard = () => {
                             </div>
                         </div>
                         <hr className='border-2 border-green-600' />
-                        <li> <Link><FaHome></FaHome> Home</Link> </li>
-                        <li> <Link to='mycart'><FaShoppingCart></FaShoppingCart> My Selected Classes</Link> </li>
-                        <li> <Link><FaPaypal></FaPaypal> Payment</Link> </li>
-                        
+
+                        {/* {isAdmin && (
+                            <>
+                                <li>
+                                    <Link to="/dashboard"><FaHome /> Admin Home</Link></li>
+                                <li>
+                                    <Link><FaShoppingCart /> My Cart</Link>
+                                </li>
+                                <li>
+                                    <Link ><FaPaypal /> Payment
+                                    </Link>
+                                </li>
+                            </>
+                        )}
+
+                        {isInstructor && (
+                            <>
+                                <li>
+                                    <Link to="/dashboard"><FaHome /> Instructor Home
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/myclasses"><FaShoppingCart /> My Classes
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link ><FaPaypal /> Payment
+                                    </Link>
+                                </li>
+                            </>
+                        )}
+
+                        {!isAdmin && !isInstructor && (
+                            <>
+                                <li>
+                                    <Link to="/dashboard"><FaHome /> Home</Link>
+                                </li>
+                                <li>
+                                    <Link to="mycart"><FaShoppingCart /> My Selected Classes
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link ><FaPaypal /> Payment</Link>
+                                </li>
+                            </>
+                        )} */}
+
+                        {
+                            isAdmin ? <>
+                                <li> <Link><FaHome></FaHome>Admin Home</Link> </li>
+                                <li> <Link to='allusers'><FaUser></FaUser>Manage Users</Link> </li>
+                                <li> <Link><FaPaypal></FaPaypal> Payment</Link> </li>
+
+                            </>
+                                : <>
+                                    <li> <Link><FaHome></FaHome> Home</Link> </li>
+                                    <li> <Link to='mycart'><FaShoppingCart></FaShoppingCart> My Selected Classes</Link> </li>
+                                    <li> <Link><FaPaypal></FaPaypal> Payment</Link> </li>
+
+                                </>
+                        }
+
                     </ul>
 
                 </div>
