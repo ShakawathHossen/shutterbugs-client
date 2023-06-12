@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 import { Toaster, toast } from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const Registration = () => {
     const { createUser, updateUserProfile } = useContext(AuthContext)
@@ -18,7 +19,7 @@ const Registration = () => {
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
                         const saveUser = { ...loggedUser, name: data.name, email: data.email, photo: data.photo}
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://shutter-bugs-server.vercel.app/users', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
                             body: JSON.stringify(saveUser)
@@ -47,6 +48,9 @@ const Registration = () => {
 
     return (
         <div className='md:py-6 background'>
+             <Helmet>
+                <title>ShuterBugs | Registration</title>
+            </Helmet>
             <div><Toaster/></div>
             <div className="grid md:grid-cols-3 py-16 justify-center align-content-center justify-items-center">
                 <div></div>

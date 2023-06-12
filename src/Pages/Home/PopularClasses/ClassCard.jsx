@@ -15,7 +15,7 @@ const ClassCard = ({ course }) => {
     console.log(course)
     if (user && user.email) {
       const cartItem = { courseId: _id, uid: user.uid, Image, Name, InstructorName, AvailableSeats, Price, email: user.email }
-      fetch('http://localhost:5000/carts', {
+      fetch('https://shutter-bugs-server.vercel.app/carts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(cartItem)

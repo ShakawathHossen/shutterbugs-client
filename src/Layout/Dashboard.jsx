@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import { AuthContext } from '../Providers/AuthProviders';
 import { Link, Outlet } from 'react-router-dom';
 import Navbar from '../Pages/Shared/Navbar/Navbar';
-import { FaHome, FaPaypal, FaShoppingCart, FaUser } from 'react-icons/fa';
+import { FaDiscourse, FaHome, FaPaypal, FaShoppingCart, FaUser } from 'react-icons/fa';
 import useAdmin from '../hooks/useAdmin';
+import { Helmet } from 'react-helmet';
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext)
@@ -16,6 +17,9 @@ const Dashboard = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>ShuterBugs | Dashboard</title>
+            </Helmet>
             <Navbar></Navbar>
             <div className="drawer lg:drawer-open ">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -55,8 +59,8 @@ const Dashboard = () => {
                         {
                             isAdmin && (<>
                                 <li> <Link><FaHome></FaHome>Admin Home</Link> </li>
-                                <li> <Link to='allusers'><FaUser></FaUser>Manage Users</Link> </li>
-                                <li> <Link><FaPaypal></FaPaypal> Payment</Link> </li>
+                                <li> <Link to='/dashboard/allusers'><FaUser></FaUser>Manage Users</Link> </li>
+                                <li> <Link to='/dashboard/managecourses'><FaDiscourse></FaDiscourse> Manage Courses</Link> </li>
 
                             </>
                             )
@@ -71,8 +75,8 @@ const Dashboard = () => {
                         )}
                         {!isAdmin && !isInstructor && (<>
                             <li> <Link><FaHome></FaHome> Home</Link> </li>
-                            <li> <Link to='mycart'><FaShoppingCart></FaShoppingCart> My Selected Classes</Link> </li>
-                            <li> <Link><FaPaypal></FaPaypal> Payment</Link> </li>
+                            <li> <Link to='/dashboard/mycart'><FaShoppingCart></FaShoppingCart> My Selected Classes</Link> </li>
+                            <li> <Link to='/dashboard/payment'><FaPaypal></FaPaypal> Payment</Link> </li>
 
                         </>
                         )

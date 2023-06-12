@@ -62,12 +62,14 @@ const AuthProviders = ({ children }) => {
             console.log('current user', currentUser);
             // get and set jwt token 
           if (currentUser) {
-            axios.post('http://localhost:5000/jwt', {
+            axios.post('https://shutter-bugs-server.vercel.app/jwt', {
                 email: currentUser?.email
            })
            .then(data => {
             console.log('jwt token', data.data.token);
             localStorage.setItem('token', data.data.token);
+            setLoading(false);
+
            })
           }
           else{

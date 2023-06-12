@@ -1,12 +1,16 @@
 import React from 'react';
 import useInstructors from '../../../hooks/useInstructors';
 import { UserCard } from 'react-ui-cards';
+import { Helmet } from 'react-helmet';
 
 const Instructor = () => {
     const [allInstructors] = useInstructors();
     return (
        <div>
-        <h1 className='md:pt-24 text-3xl text-center'>All Instructor</h1>
+         <Helmet>
+                <title>ShuterBugs | Instructors</title>
+            </Helmet>
+        <h1 className=' text-3xl text-center'>All Instructor</h1>
          <div className='grid md:grid-cols-3 justify-items-center grid-cols-1'>
             {
                 allInstructors.map(instructor =>

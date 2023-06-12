@@ -6,6 +6,7 @@ import { AuthContext } from '../../Providers/AuthProviders';
 import { getAuth, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import app from '../../firebase/firebase.config';
 import { Toaster, toast } from 'react-hot-toast';
+import { Helmet } from 'react-helmet';
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -52,7 +53,7 @@ const handleGoogleSignIn = () => {
         photo: user.photoURL
       };
 
-      fetch('http://localhost:5000/users', {
+      fetch('https://shutter-bugs-server.vercel.app/users', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(saveUser)
@@ -78,6 +79,9 @@ const handleGoogleSignIn = () => {
 
   return (
     <div className="md:py-6 background">
+       <Helmet>
+                <title>ShuterBugs | Login</title>
+            </Helmet>
       <Toaster />
       <div className="grid md:grid-cols-3 py-16 justify-center align-content-center justify-items-center">
         <div></div>

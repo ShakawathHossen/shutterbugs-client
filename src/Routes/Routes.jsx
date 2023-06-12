@@ -10,7 +10,8 @@ import Dashboard from "../Layout/Dashboard";
 import MyCart from "../Pages/Dashboard/MyCart/MyCart";
 import PrivateRoutes from "./PrivateRoutes";
 import AllUsers from "../Pages/Dashboard/AllUsers/AllUsers";
-import AdminRoutes from "./AdminRoutes";
+import ManageCourses from "../Pages/Dashboard/ManageCourses/ManageCourses";
+import Payment from "../Pages/Dashboard/Payment/Payment";
 
 
 
@@ -54,7 +55,16 @@ const router = createBrowserRouter([
       {
         path: "allusers",
         element: <AllUsers></AllUsers>
-      }
+      },
+      {
+        path: "managecourses",
+        element: <ManageCourses></ManageCourses>
+      },
+      {
+        path: "payment/:id",
+        element: <Payment> </Payment>,
+        loader:({params})=> fetch(`https://shutter-bugs-server.vercel.app/carts/${params.id}`)
+      },
 
     ]
   },

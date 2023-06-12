@@ -4,7 +4,7 @@ const useClasses = () => {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        fetch(`http://localhost:5000/classes`)
+        fetch(`https://shutter-bugs-server.vercel.app/classes`)
             .then(res => res.json())
             .then(data => {
                 setCourses(data);
