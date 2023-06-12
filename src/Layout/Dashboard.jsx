@@ -5,6 +5,7 @@ import Navbar from '../Pages/Shared/Navbar/Navbar';
 import { FaDiscourse, FaHome, FaPaypal, FaShoppingCart, FaUser } from 'react-icons/fa';
 import useAdmin from '../hooks/useAdmin';
 import { Helmet } from 'react-helmet';
+import Footer from '../Pages/Shared/Footer/Footer';
 
 const Dashboard = () => {
     const { user } = useContext(AuthContext)
@@ -21,6 +22,7 @@ const Dashboard = () => {
                 <title>ShuterBugs | Dashboard</title>
             </Helmet>
             <Navbar></Navbar>
+          
             <div className="drawer lg:drawer-open ">
                 <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col p-10">
@@ -86,6 +88,7 @@ const Dashboard = () => {
 
                 </div>
             </div>
+            <Footer></Footer>
         </div>
     );
 };

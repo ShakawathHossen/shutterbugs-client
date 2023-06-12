@@ -92,7 +92,7 @@ const Navbar = () => {
 
   return (
     <div>
-      <nav className="flex items-center justify-between px-4  md:z-10 w-full bg-green-900 ">
+      <nav className="flex items-center justify-between px-4  md:z-10 w-full bg-green-600 ">
         {/* Logo */}
         <div className="flex items-center">
           <img src="https://i.ibb.co/Vg6XWY9/2-removebg-preview.png" alt="Logo" className="h-20" />

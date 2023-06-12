@@ -8,7 +8,7 @@ const Footer = () => {
                 <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16 flex flex-wrap justify-between">
                     <div className="w-full md:w-4/12 mb-4 md:mb-0 flex items-center md:items-start  flex-col md:justify-start justify-center">
                         <img className='w-40' src="https://i.ibb.co/Vg6XWY9/2-removebg-preview.png" alt="" />
-                        <p className='md:w-11/12  '>Welcome to Hero Haven, the ultimate destination for action figure enthusiasts! At Hero Haven, we understand the passion and excitement that comes with collecting and immersing oneself in the world of action figures. Our shop is a haven where heroes come to life, and dreams take flight.</p>
+                        <p className='md:w-11/12  '>ShutterBugs is not just a photography summer camp; it's an immersive experience that sparks imagination, cultivates skills, and nurtures a lifelong passion for capturing moments through the lens. At ShutterBugs, we believe that every child has a unique perspective waiting to be discovered.</p>
                     </div>
                     <div className="w-full md:w-3/12 mb-4 md:mb-0">
                         <h4 className="text-white text-lg font-bold mb-4">Opening Hours</h4>
@@ -21,7 +21,7 @@ const Footer = () => {
                         <p>123 Main St</p>
                         <p>New York, NY 10001</p>
                         <p>Phone: (123) 456-7890</p>
-                        <p>Email: info@herohaven.com</p>
+                        <p>Email: info@shutterbugs.com</p>
                     </div>
                     <div className="w-full md:text-s md:w-2/12">
                         <h4 className="text-white text-lg font-bold mb-4">Follow Us</h4>
