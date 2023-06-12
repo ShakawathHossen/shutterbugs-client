@@ -18,6 +18,7 @@ import { FreeMode, Pagination } from "swiper";
 const PopularInstructors = () => {
 
     const [instructors]= useInstructors();
+    const topInstructors = instructors.slice(0, 6);
 
     return (
         <div>
@@ -26,7 +27,7 @@ const PopularInstructors = () => {
             <div className='grid md:grid-cols-3 justify-items-center grid-cols-1'>
         
                     {
-                        instructors.map(instructor => <UserCard className='shadow-xl' instructor={instructor} key={instructor._id}
+                        topInstructors.map(instructor => <UserCard className='shadow-xl' instructor={instructor} key={instructor._id}
                         float
                         header={instructor.CourseBanner}
                         avatar={instructor.Image}

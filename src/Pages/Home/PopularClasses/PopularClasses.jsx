@@ -4,6 +4,8 @@ import useClasses from '../../../hooks/useClasses';
 
 const PopularClasses = () => {
     const [courses]= useClasses();
+    const sortedCourses = courses.sort((a, b) => b.availableSeats - a.availableSeats);
+    const topCourses = sortedCourses.slice(0, 6);
 
     return (
 
@@ -12,7 +14,7 @@ const PopularClasses = () => {
 
             <div className='grid md:grid-cols-3 justify-items-center grid-cols-1 gap-10 my-16'>
                 {
-                    courses.map(course => <ClassCard course={course} key={course._id}></ClassCard>)
+                    topCourses.map(course => <ClassCard course={course} key={course._id}></ClassCard>)
                 }
             </div>
         </div>
