@@ -4,10 +4,11 @@ import { useContext } from 'react';
 
 const useCart = () => {
 
-    const { user } = useContext(AuthContext);
+    const { user, loading } = useContext(AuthContext);
     const token = localStorage.getItem('token');
     const { refetch, data: cart = [] } = useQuery({
         queryKey: ['carts', user?.email],
+        enabled: !loading,
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/carts?email=${user?.email}`,{
                 headers: {

@@ -5,6 +5,7 @@ import axios from 'axios';
 
 
 
+
 export const AuthContext = createContext(null);
 const auth = getAuth(app);
 
@@ -14,8 +15,8 @@ const auth = getAuth(app);
 
 
 
-const AuthProviders = ({ children }) => {
 
+const AuthProviders = ({ children }) => {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true)
 
@@ -71,9 +72,11 @@ const AuthProviders = ({ children }) => {
           }
           else{
             localStorage.removeItem('token');
+            setLoading(false);
+
           }
 
-            setLoading(false);
+         
         });
         return () => {
             unsubscribe();

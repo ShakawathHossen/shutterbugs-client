@@ -7,6 +7,7 @@ const MyCart = () => {
     const { refetch,cart } = useCart();
     console.log(cart);
     const total = cart.reduce((sum, item) => sum + item.Price, 0).toFixed(2);
+    
     const handleDelete = item => {
         fetch(`http://localhost:5000/carts/${item._id}`, {
             method: 'DELETE'

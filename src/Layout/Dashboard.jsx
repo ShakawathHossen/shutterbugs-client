@@ -8,9 +8,10 @@ import useAdmin from '../hooks/useAdmin';
 const Dashboard = () => {
     const { user } = useContext(AuthContext)
     console.log(user);
-    // const isAdmin = true;
+    // const isAdmin = false;
     // const isInstructor = true;
-    const [isAdmin]= useAdmin();
+    const [isAdmin, isInstructor] = useAdmin();
+    console.log(isAdmin, isInstructor);
 
 
     return (
@@ -33,9 +34,18 @@ const Dashboard = () => {
                                 <img className="w-20 h-20 rounded-full mx-auto mb-2" src={user.photoURL} alt="Profile" />
                                 {user && (
                                     <>
-                                        <h4 className="text-lg font-bold pb-2">{user.displayName} <span className='bg-green-600 text-white font-semibold text-xs px-2 py-1 rounded-full'>{isAdmin ? 'Admin' : 'User'}</span></h4>
+                                        <h4 className="text-lg font-bold pb-2">
+                                            {user.displayName}{' '}
+                                            {isAdmin ? (
+                                                <span className='bg-green-600 text-white font-semibold text-xs px-2 py-1 rounded-full'>Admin</span>
+                                            ) : isInstructor ? (
+                                                <span className='bg-blue-600 text-white font-semibold text-xs px-2 py-1 rounded-full'>Instructor</span>
+                                            ) : (
+                                                <span className='bg-gray-600 text-white font-semibold text-xs px-2 py-1 rounded-full'>Student</span>
+                                            )}
+                                        </h4>
                                         <p className="text-gray-600">{user.email}</p>
-                                       
+
                                     </>
                                 )}
                             </div>
@@ -43,21 +53,29 @@ const Dashboard = () => {
                         <hr className='border-2 border-green-600' />
 
                         {
-                            isAdmin  && (<>
+                            isAdmin && (<>
                                 <li> <Link><FaHome></FaHome>Admin Home</Link> </li>
                                 <li> <Link to='allusers'><FaUser></FaUser>Manage Users</Link> </li>
                                 <li> <Link><FaPaypal></FaPaypal> Payment</Link> </li>
 
                             </>
-                            ) 
+                            )
                         }
-                              {!isAdmin  && ( <>
-                                    <li> <Link><FaHome></FaHome> Home</Link> </li>
-                                    <li> <Link to='mycart'><FaShoppingCart></FaShoppingCart> My Selected Classes</Link> </li>
-                                    <li> <Link><FaPaypal></FaPaypal> Payment</Link> </li>
 
-                                </>
-                           ) 
+                        {isInstructor && (
+                            <>
+                                <li> <Link><FaHome></FaHome> Instructor Home</Link> </li>
+                                <li> <Link ><FaUser></FaUser>Manage Courses</Link> </li>
+                                <li> <Link ><FaUser></FaUser>Add Course</Link> </li>
+                            </>
+                        )}
+                        {!isAdmin && !isInstructor && (<>
+                            <li> <Link><FaHome></FaHome> Home</Link> </li>
+                            <li> <Link to='mycart'><FaShoppingCart></FaShoppingCart> My Selected Classes</Link> </li>
+                            <li> <Link><FaPaypal></FaPaypal> Payment</Link> </li>
+
+                        </>
+                        )
                         }
 
                     </ul>

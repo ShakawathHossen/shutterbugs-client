@@ -6,7 +6,11 @@ import { FaTrash } from 'react-icons/fa';
 const AllUsers = () => {
     const { data: users = [], refetch } = useQuery(['users'], async () => {
 
-        const res = await fetch(`http://localhost:5000/users`)
+        const res = await fetch(`http://localhost:5000/users`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+        })
         return res.json();
     })
     const handleMakeAdmin = (user) => {
@@ -22,17 +26,32 @@ const AllUsers = () => {
             })
     }
 
+    const handleMakeInstructor = (user) => {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                toast.success(`${user.name} is now Instructor`);
+                if (data.modifiedCount) {
+                    refetch();
+                }
+            });
+    };
+
+
+
     const handleDelete = user => {
         fetch(`http://localhost:5000/users/${user._id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
             .then(data => {
-                if (data.deletedCount>0) {
+                if (data.deletedCount > 0) {
                     refetch()
                     toast('User Deleted', {
                         icon: '❌',
-                      });
+                    });
                 }
             })
     }
@@ -77,16 +96,33 @@ const AllUsers = () => {
                                             </div>
                                         </div>
                                     </td>
-                                    <td className=''>
-                                        {
-                                            user.role === 'admin' ? <span className='bg-green-600 text-white px-2 py-1 rounded-full'>Admin</span> : <button 
-                                            onClick={()=>handleMakeAdmin(user)} className='bg-sky-600 text-white px-2 py-1 rounded-full'>Make Admin</button>
-                                        }
-                                    </td>
-                                    
                                     <td>
-                                        <button onClick={() => handleDelete(user)} className=" bg-red-600 text-white px-2 py-1 rounded-full">Delete User</button>
+                                        {user.role === 'admin' ? (
+                                            <span className='bg-green-600 text-white px-2 py-1 rounded-full'>Admin</span>
+                                        ) : user.role === 'instructor' ? (
+                                            <span className='bg-blue-600 text-white px-2 py-1 rounded-full'>Instructor</span>
+                                        ) : (
+                                            <>
+                                                <button
+                                                    onClick={() => handleMakeAdmin(user)}
+                                                    className='bg-sky-600 text-white px-2 py-1 rounded-full'
+                                                >
+                                                    Make Admin
+                                                </button>
+                                                <button
+                                                    onClick={() => handleMakeInstructor(user)}
+                                                    className='bg-blue-600 text-white px-2 py-1 rounded-full ml-2'
+                                                >
+                                                    Make Instructor
+                                                </button>
+                                            </>
+                                        )}
                                     </td>
+                                    <td>
+                  <button onClick={() => handleDelete(user)} className='bg-red-600 text-white px-2 py-1 rounded-full'>
+                    Delete User
+                  </button>
+                </td>
                                 </tr>
                             )
                         }
